@@ -1,6 +1,6 @@
 <!-- Page Title -->
 <div class="page-title dark-background" data-aos="fade"
-    style="background-image: url(<?=base_url()?>assets/img/page-title-bg.webp);">
+    style="background-image: url(background-image: url(<?=base_url('assets/img/timor_megah.jpg')?>);">
     <div class="container position-relative">
         <h1>Rekomendasi Hotel</h1>
     </div>

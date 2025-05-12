@@ -1,7 +1,7 @@
   <!-- Hero Section -->
   <section id="hero" class="hero section dark-background">
 
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+      <img src="<?=base_url()?>assets/img/timor_megah.jpg" alt="" data-aos="fade-in">
 
       <div class="container d-flex flex-column align-items-center text-center">
           <h2 data-aos="fade-up" data-aos-delay="100">SISTEM PENDUKUNG KEPUTUSAN REKOMENDASI HOTEL</h2>

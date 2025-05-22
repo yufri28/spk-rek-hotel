@@ -14,12 +14,25 @@
             Total seluruh bobot harus tepat <strong>100</strong>. Pastikan tidak kurang atau lebih.
         </div>
         <form id="bobotForm" action="<?= base_url('electre');?>" method="post">
-            <div class="row gy-4 d-flex justify-content-center">
+            <!-- <div class="row gy-4 d-flex justify-content-center">
                 <?php foreach ($listKriteria as $key => $kriteria) :?>
                 <div class="col-6">
                     <label for="bobot_<?=$kriteria['id_kriteria'];?>"><?=$kriteria['nama_kriteria'];?></label>
-                    <input type="number" class="form-control bobot-input" name="bobot[<?=$kriteria['id_kriteria'];?>]"
+                    <input type="range" class="form-range bobot-input" name="bobot[<?=$kriteria['id_kriteria'];?>]"
                         id="bobot_<?=$kriteria['id_kriteria'];?>" min="0" max="100" required>
+                </div>
+                <?php endforeach; ?>
+            </div> -->
+            <div class="row gy-4 d-flex justify-content-center">
+                <?php foreach ($listKriteria as $key => $kriteria) :?>
+                <div class="col-6">
+                    <label for="bobot_<?=$kriteria['id_kriteria'];?>">
+                        <?=$kriteria['nama_kriteria'];?>:
+                        <span id="bobot_val_<?=$kriteria['id_kriteria'];?>">0</span>
+                    </label>
+                    <input type="range" class="form-range bobot-input" name="bobot[<?=$kriteria['id_kriteria'];?>]"
+                        id="bobot_<?=$kriteria['id_kriteria'];?>" min="0" max="100" value="0" required
+                        oninput="document.getElementById('bobot_val_<?=$kriteria['id_kriteria'];?>').textContent = this.value">
                 </div>
                 <?php endforeach; ?>
             </div>
@@ -32,7 +45,7 @@
     </div>
 </section>
 
-<script>
+<!-- <script>
 document.getElementById('bobotForm').addEventListener('submit', function(event) {
     const inputs = document.querySelectorAll('.bobot-input');
     let total = 0;
@@ -58,10 +71,47 @@ document.getElementById('bobotForm').addEventListener('submit', function(event) 
         event.preventDefault();
     }
 });
-</script>
-
-<!-- Blog Posts Section -->
+</script> -->
 <section id="blog-posts" class="blog-posts section">
+    <div class="container">
+        <h2 class="mb-4 text-center">Daftar Hotel</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Hotel</th>
+                        <th>Gambar</th>
+                        <th>Lokasi (Google Maps)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($listHotel as $key => $hotel) : ?>
+                    <tr>
+                        <td><?= $key + 1; ?></td>
+                        <td>
+                            <a href="<?= base_url('pages/detail_rekomendasi/'.$hotel['id_alternatif']); ?>">
+                                <?= $hotel['nama_alternatif']; ?>
+                            </a>
+                        </td>
+                        <td>
+                            <img src="<?= base_url('uploads/').$hotel['gambar']; ?>" alt="Gambar Hotel" width="100">
+                        </td>
+                        <td>
+                            <a target="_blank" class="btn btn-sm btn-success"
+                                href="https://www.google.com/maps/dir/?api=1&destination=<?= $hotel['latitude']; ?>,<?= $hotel['longitude']; ?>">
+                                Google Maps
+                            </a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- <section id="blog-posts" class="blog-posts section">
     <div class="container">
         <div class="row gy-4 d-flex justify-content-center">
             <?php foreach ($listHotel as $key => $hotel) :?>
@@ -80,9 +130,6 @@ document.getElementById('bobotForm').addEventListener('submit', function(event) 
                 </article>
             </div>
             <?php endforeach;?>
-            <!-- End post list item -->
         </div>
-        <!-- End recent posts list -->
     </div>
-</section>
-<!-- /Blog Posts Section -->
+</section> -->

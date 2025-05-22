@@ -129,6 +129,27 @@ class Electre extends CI_Controller
             ];
         }
 
+        $matix_X = [];
+        foreach ($dataAlternatif as $alt) {
+            $matix_X[$alt->id_alternatif] = [
+                'nama' => $alt->nama_alternatif
+            ];
+        }
+        
+        $matrix_R = [];
+        foreach ($dataAlternatif as $alt) {
+            $matrix_R[$alt->id_alternatif] = [
+                'nama' => $alt->nama_alternatif
+            ];
+        }
+
+        $matrix_V = [];
+        foreach ($dataAlternatif as $alt) {
+            $matrix_V[$alt->id_alternatif] = [
+                'nama' => $alt->nama_alternatif
+            ];
+        }
+
 
         $data = [
             'matriks_X' => $X,
@@ -202,8 +223,8 @@ class Electre extends CI_Controller
         //         <td>". $infoAlternatif[$id]['nama']."</td>
         //         <td>". $score ."</td>
         //     </tr> </br>";
-        // }
-
+        // }        
+        
 		$this->load->view('pages/templates/header', $data);
 		$this->load->view('pages/hasil_rekomendasi');
 		$this->load->view('pages/templates/footer');

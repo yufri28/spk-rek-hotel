@@ -11,7 +11,6 @@
         <div class="alert alert-warning" role="alert">
             Silakan masukkan bobot untuk setiap kriteria sesuai tingkat kepentingan Anda.
             Bobot menunjukkan seberapa penting kriteria tersebut dalam pengambilan keputusan.
-            Total seluruh bobot harus tepat <strong>100</strong>. Pastikan tidak kurang atau lebih.
         </div>
         <form id="bobotForm" action="<?= base_url('electre');?>" method="post">
             <!-- <div class="row gy-4 d-flex justify-content-center">

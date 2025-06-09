@@ -35,7 +35,8 @@
                       </div>
 
                       <h2 class="title">
-                          <a href="blog-details.html"><?=$hotel['nama_alternatif'];?></a>
+                          <a
+                              href="<?= base_url('pages/detail_rekomendasi/'.$hotel['id_alternatif']); ?>"><?=$hotel['nama_alternatif'];?></a>
                       </h2>
                   </article>
               </div>
